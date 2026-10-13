@@ -1,0 +1,10 @@
+.main-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.item1 {
+    margin-bottom: 20px;
+}

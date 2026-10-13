@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
+//import DiceRoll from './components/diceRoll';
+//import Timer from './components/timer';
+// import WordCounter from './components/wordCounter';
+//import Unique from './components/uniqueMain/unique';
+import ApiPro from './components/apiPro/apiPro';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/*<DiceRoll />*/}
+    {/* <Timer />*/}
+    {/*<WordCounter />*/}
+    {/*<Unique />*/}
+    <ApiPro />
   </React.StrictMode>
 );
 
