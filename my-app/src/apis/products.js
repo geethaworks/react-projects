@@ -1,6 +1,21 @@
-import axios from "axios"
+// import axios from "axios"
 
-const show = () => axios.get("https://smile-cart-backend-staging.neetodeployapp.com/products/infinix-inbook-2");
+// const show = slug => axios.get(`products/${slug}`);
+// const fetch = () => axios.get("products");
+// const productsApi = { show, fetch };
+// export default productsApi
 
-const productsApi = { show }
-export default productsApi
+import { mockProductData, mockProductsList } from "./mockProducts"; // Adjust path if needed
+
+const show = slug => {
+    console.log(`[Mock API] Fetching product with slug: ${slug}`);
+    return Promise.resolve(mockProductData);
+};
+
+const fetch = () => {
+    console.log("[Mock API] Fetching all products");
+    return Promise.resolve({ products: mockProductsList });
+};
+
+const productsApi = { show, fetch };
+export default productsApi;
