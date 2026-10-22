@@ -12,7 +12,7 @@ const Product = () => {
     const { id } = useParams()
     const fetchProduct = async () => {
         try {
-            const response = await productsApi.show(id)
+            const response = await productsApi.show(id,{calculateMrp:true})
             setProduct(response)
         } catch (error) {
             setIsError(true)
@@ -24,13 +24,13 @@ const Product = () => {
     }
     useEffect(() => {
         fetchProduct()
-    }, [])
-    const { title, description, price, discountPercentage, images, thumbnail } = product;
-    const mrp = price / (1 - discountPercentage / 100).toFixed(1);
+    },[])
+    const { title, description, price, discountPercentage, images, thumbnail,mrp } = product;
     if (isLoading) {
         return <PageLoader />
     }
-    if (isError) return <PageNotFound />;
+    if (isError) 
+        return <PageNotFound />;
 
     return (
         <div className='main-container'>
@@ -54,6 +54,5 @@ const Product = () => {
         </div>
 
     )
-
 }
 export default Product

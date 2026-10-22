@@ -15,7 +15,6 @@ return (
       <p>${price}</p>
     </Link>
   );
-
-
 }
+
 export default ProductListItem
