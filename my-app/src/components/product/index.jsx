@@ -9,10 +9,10 @@ const Product = () => {
     const [product, setProduct] = useState({})
     const [isLoading, setIsloading] = useState(true)
     const [isError, setIsError] = useState(false)
-    const { slug } = useParams()
+    const { id } = useParams()
     const fetchProduct = async () => {
         try {
-            const response = await productsApi.show(slug)
+            const response = await productsApi.show(id)
             setProduct(response)
         } catch (error) {
             setIsError(true)
@@ -22,40 +22,31 @@ const Product = () => {
             setIsloading(false)
         }
     }
-    console.log(product)
     useEffect(() => {
         fetchProduct()
     }, [])
-    const {
-        name,
-        description,
-        mrp,
-        offer_price: offerPrice,
-        image_urls: imageUrls,
-        image_url: imageUrl,
-    } = product;
-    const totalDiscount = mrp - offerPrice;
-    const discountPercentage = ((totalDiscount / mrp) * 100).toFixed(1);
+    const { title, description, price, discountPercentage, images, thumbnail } = product;
+    const mrp = price / (1 - discountPercentage / 100).toFixed(1);
     if (isLoading) {
-        <PageLoader />
+        return <PageLoader />
     }
     if (isError) return <PageNotFound />;
 
     return (
-        <div class='main-container'>
-            <Header title={name} />
-            <div class='product-details'>
+        <div className='main-container'>
+            <Header title={title} />
+            <div className='product-details'>
                 <div style={{ width: '40%' }}>
-                    {imageUrls && imageUrls.length !== 0 ? (
-                        <Carousel imageUrls={[...imageUrls, imageUrl]} title={name} />
+                    {images && images.length > 1 ? (
+                        <Carousel imageUrls={images} title={title} />
                     ) : (
-                        <img alt={name} src={imageUrl} />
+                        <img alt={title} src={thumbnail} />
                     )}
                 </div>
                 <div className="product-info">
                     <p>{description}</p>
                     <p>MRP: ${mrp}</p>
-                    <p><strong>Offer price: ${offerPrice}</strong></p>
+                    <p><strong>Offer price: ${price}</strong></p>
                     <p style={{ color: 'yellowgreen' }}><strong>{discountPercentage}% off</strong></p>
                 </div>
             </div>

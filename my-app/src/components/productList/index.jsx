@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import productsApi from "../../apis/products";
 import { Header, PageLoader } from "../common";
 import ProductListItem from "./productListItem";
+import './index.css'
 
 const ProductList = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -9,7 +10,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const { products } = await productsApi.fetch();
+      const  { products } = await productsApi.fetch();
       setProducts(products);
     } catch (error) {
       console.log("An error occurred:", error);

@@ -6,12 +6,12 @@
     padding: 1rem;
 }
 @media (min-width: 768px) {
-    .custom-grid {
+    .product-list {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 @media (min-width: 1024px) {
-    .custom-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+    .product-list{
+        grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 }

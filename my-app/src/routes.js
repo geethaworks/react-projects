@@ -2,7 +2,7 @@ const routes = {
   root: "/",
   products: {
     index: "/products",
-    show: "/products/:slug",
+    show: "/products/:id",
   },
 };
 

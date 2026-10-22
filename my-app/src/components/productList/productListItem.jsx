@@ -3,12 +3,12 @@ import './productListItem.css'
 import routes from "../../routes";
 import { buildUrl } from "../utils/url";
 
-const ProductListItem=({image_url,name,offer_price,slug})=>{
+const ProductListItem=({images,title,price,id,thumbnail})=>{
 return (
-    <Link className='product-list-item' to={buildUrl(routes.products.show,{slug})}>
-    <img style={{width:'4rem',height:'4rem'}} alt={name} src={image_url}/>
-    <p>{name}</p>
-    <p>${offer_price}</p>
+    <Link className='product-list-item' to={buildUrl(routes.products.show,{id})}>
+    <img style={{width:'10rem',height:'10rem'}} alt={title} src={thumbnail}/>
+    <p>{title}</p>
+    <p>${price}</p>
  </Link>
 ) 
 

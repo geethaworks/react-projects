@@ -10,9 +10,9 @@ const setHeaders = () => {
     "Content-Type": "application/json",
   };
 }
-const initializeAxios=() => {
+const initializeAxios = () => {
   axios.defaults.baseURL =
-    "https://smile-cart-backend-staging.neetodeployapp.com/";
+    "https://dummyjson.com/";
   setHeaders();
   responseInterceptors();
 }
