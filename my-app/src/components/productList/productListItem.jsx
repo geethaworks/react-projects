@@ -5,12 +5,16 @@ import { buildUrl } from "../utils/url";
 
 const ProductListItem=({images,title,price,id,thumbnail})=>{
 return (
-    <Link className='product-list-item' to={buildUrl(routes.products.show,{id})}>
-    <img style={{width:'10rem',height:'10rem'}} alt={title} src={thumbnail}/>
-    <p>{title}</p>
-    <p>${price}</p>
- </Link>
-) 
+    <Link className="product-list-item" to={buildUrl(routes.products.show, { id })}>
+      <img
+        style={{ width: "100%", height: "180px", objectFit: "cover" }}
+        alt={title}
+        src={thumbnail}
+      />
+      <p>{title}</p>
+      <p>${price}</p>
+    </Link>
+  );
 
 
 }
